@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="Voxelport-website/Frame_2.png" width="100" alt="VoxelPort" />
+<img src="https://pr.opop.eu.org/Frame_2.png" width="100" alt="VoxelPort" />
 
 # VoxelPort
 
