@@ -9,7 +9,7 @@ No port forwarding. No VPN. No router config. Just play.
 
 [![Discord](https://img.shields.io/badge/Discord-Join-5865f2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/EuDMWUuGpp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00FFB2?style=flat-square)](VoxelPort%20Mod/LICENSE)
-[![Website](https://img.shields.io/badge/Website-voxelport.qzz.io-00FFB2?style=flat-square)](https://voxelport.qzz.io)
+[![Website](https://img.shields.io/badge/Website-voxelport.in-00FFB2?style=flat-square)](https://voxelport.in)
 
 </div>
 
@@ -32,7 +32,7 @@ Friend pastes G0GI5Z              →  connected in seconds
 |---|---|
 | [VoxelPort Mod](#voxelport-mod) | Fabric client mod — share a singleplayer world with a room code |
 | [VoxelPort Server](#voxelport-server) | Relay proxy, Discord bot, and Paper plugin — the infrastructure behind the network |
-| [Website](#website) | Marketing and status site at [voxelport.qzz.io](https://voxelport.qzz.io) |
+| [Website](#website) | Marketing and status site at [voxelport.in](https://voxelport.in) |
 
 ---
 
@@ -75,12 +75,12 @@ The server-side infrastructure. Three components that work together to run the r
 
 The WebSocket relay that bridges connections between hosts and joiners (or between the Paper plugin and vanilla clients).
 
-**Stack:** Node.js · `ws`
+**Stack:** Go
 
 ```bash
 cd "VoxelPort Server/relay-proxy"
-npm install
-npm start
+go build -o relay .
+./relay serve
 ```
 
 ### discord-bot
@@ -97,7 +97,7 @@ npm start
 
 ### paper-plugin
 
-A Paper plugin that connects a server to the relay, giving it a public address like `voxelportrelay.qzz.io:25312`. Vanilla clients connect directly — no mod required on their end.
+A Paper plugin that connects a server to the relay, giving it a public address like `play.voxelport.in:25312`. Vanilla clients connect directly — no mod required on their end.
 
 **Stack:** Java 21 · Paper 1.21+
 
@@ -117,7 +117,7 @@ Drop the JAR into your server's `plugins/` folder, add your token to `plugins/Vo
 
 > `F:\Website`
 
-The VoxelPort marketing and status site, deployed at [voxelport.qzz.io](https://voxelport.qzz.io).
+The VoxelPort marketing and status site, deployed at [voxelport.in](https://voxelport.in).
 
 **Stack:** React 19 · Vite · Tailwind CSS 4 · Three.js (`@react-three/fiber`) · Lenis (smooth scroll)
 
@@ -137,7 +137,7 @@ Deployed via Vercel (`vercel.json` in root).
 ```
 HOST / PAPER SERVER             RELAY                        JOINER / VANILLA CLIENT
 ───────────────────             ─────                        ───────────────────────────
-Open to VoxelPort   ──ws──▶  voxelportrelay.qzz.io  ◀──ws──  Paste room code
+Open to VoxelPort   ──ws──▶  voxelport.in  ◀──ws──  Paste room code
 Get code: G0GI5Z    ◀──────  assigns room            ──────▶  Connect to room
 Game traffic        ──────▶  proxy bridge             ──────▶  Receives packets
 ```
@@ -165,7 +165,7 @@ This prevents anonymous abuse of the relay without requiring a separate account.
 
 ## Relay Infrastructure
 
-The relay currently runs on a single node in **India** (`voxelportrelay.qzz.io`).
+The relay currently runs on a single node in **India** (`voxelport.in`).
 
 | Region | Expected latency overhead |
 |---|---|
@@ -175,13 +175,13 @@ The relay currently runs on a single node in **India** (`voxelportrelay.qzz.io`)
 | North America | 250–400 ms |
 | South America, Australia | > 400 ms |
 
-Additional nodes in Europe and North America are planned as the project scales. [Check live status](https://voxelport.qzz.io/#/status)
+Additional nodes in Europe and North America are planned as the project scales. [Check live status](https://voxelport.in/#/status)
 
 ---
 
 ## Contributing
 
-VoxelPort welcomes contributors across all repos. See the [Join Us page](https://voxelport.qzz.io/#/join) for open roles.
+VoxelPort welcomes contributors across all repos. See the [Join Us page](https://voxelport.in/#/join) for open roles.
 
 1. Fork the relevant repo
 2. Make your changes
@@ -193,7 +193,7 @@ Bug reports and feature requests go in the Issues tab of the relevant repository
 
 ## Links
 
-- [Website](https://voxelport.qzz.io)
+- [Website](https://voxelport.in)
 - [Discord](https://discord.gg/EuDMWUuGpp)
 - [Fabric Mod on Modrinth](https://modrinth.com/mod/voxelport)
 - [Paper Plugin on Hangar](https://hangar.papermc.io/trazhub/VoxelPort)
