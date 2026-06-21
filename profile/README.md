@@ -4,8 +4,8 @@
 
 # VoxelPort
 
-**Host your Minecraft server over the internet, no port forwarding.**  
-No VPN. No router config. Players join with vanilla Minecraft.
+**Minecraft relay tooling for VoxelPort servers.**  
+Plugin and mod support for private VoxelPort relay infrastructure.
 
 [![Discord](https://img.shields.io/badge/Discord-Join-5865f2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/Fbqx76j5US)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00FFB2?style=flat-square)](https://github.com/VOXELPORT)
@@ -17,11 +17,11 @@ No VPN. No router config. Players join with vanilla Minecraft.
 
 ## Overview
 
-VoxelPort is a Minecraft networking project that lets server owners publish a server through the VoxelPort relay network. Your server connects out to the relay, the relay assigns a public address, and players join normally from Minecraft Multiplayer.
+VoxelPort is a Minecraft networking project made of a Paper plugin, a Fabric mod, a relay service, and a Discord bot. Server owners connect their Minecraft server to a configured relay, and players join through the address assigned by that relay.
 
 ```text
-Install plugin or mod       ->  paste your free Discord token
-Run /voxelport status       ->  play.voxelport.in:25312
+Install plugin or mod       ->  paste your Discord-issued token
+Run /voxelport status       ->  relay-host.example:25312
 Friends paste the address   ->  connected with vanilla Minecraft
 ```
 
@@ -35,24 +35,22 @@ Players do not need to install anything.
 |---|---|
 | [Paper Plugin](#paper-plugin) | Paper server plugin for Paper 1.21+ servers |
 | [Fabric Mod](#fabric-mod) | Fabric server mod for Minecraft 26.x / Java 25 servers |
-| [Server Infrastructure](#server-infrastructure) | Relay proxy and Discord bot behind the network |
-| [Website](#website) | Marketing, docs, and status site at [www.voxelport.in](https://www.voxelport.in) |
 
 ---
 
 ## Paper Plugin
 
-A **Paper server plugin** that connects your self-hosted Minecraft server to the relay, giving it a public address like `play.voxelport.in:25312`. Players connect with unmodified Minecraft.
+A **Paper server plugin** that connects your self-hosted Minecraft server to the configured relay, giving it a join address like `relay-host.example:25312`. Players connect with unmodified Minecraft.
 
 **Stack:** Java 21, Paper 1.21+
 
 **Key features:**
 
-- Public address without port forwarding
+- Join address without port forwarding
 - Vanilla clients connect directly
 - Free token issued through Discord with `/gettoken`
-- Encrypted `wss://voxelport.in` connection to the relay
-- `/voxelport status` shows public address and relay health
+- Encrypted `wss://` connection to the relay
+- `/voxelport status` shows join address and relay health
 - Drop-in JAR, no separate tunnel app
 
 **Quick start:**
@@ -74,14 +72,14 @@ Install the JAR in `plugins/`, add your token to `plugins/VoxelPort/config.yml`,
 
 ## Fabric Mod
 
-A **Fabric server mod** that brings the same relay flow to Fabric servers. It uses the same token and public-port relay protocol as the Paper plugin.
+A **Fabric server mod** that brings the same relay flow to Fabric servers. It uses the same token and assigned-port relay protocol as the Paper plugin.
 
 **Stack:** Java 25, Fabric Loader 0.18.6+, Minecraft 26.x
 
 **Key features:**
 
 - Dedicated server support through `/voxelport` commands
-- Same public address flow: `play.voxelport.in:<assigned-port>`
+- Same assigned-address flow: `<relay-host>:<assigned-port>`
 - Token saved locally in `config/voxelport/settings.properties`
 - WebSocket frame buffering and serialized sends to avoid packet-stream corruption
 - Client-side legacy singleplayer room-code UI is still present, but server mode is the recommended path
@@ -114,64 +112,32 @@ Install the JAR in the Fabric server `mods/` folder, restart the server, save yo
 
 ---
 
-## Server Infrastructure
+## Infrastructure
 
-The relay and Discord bot power the public network.
+The relay service and Discord bot are VoxelPort-operated infrastructure. They validate tokens, assign relay ports, and bridge Minecraft traffic for registered plugin/mod servers.
 
-### relay
-
-The Go WebSocket relay validates tokens, assigns public TCP ports, and bridges raw Minecraft traffic between vanilla clients and a registered server.
-
-```bash
-cd relay
-go build ./...
-```
-
-### bot
-
-The Discord bot issues server tokens and supports the community workflow around `/gettoken`, `/revoketoken`, and relay status.
-
-```bash
-cd bot
-npm install
-npm run build
-```
-
----
-
-## Website
-
-The VoxelPort marketing, docs, and status site is deployed at [www.voxelport.in](https://www.voxelport.in).
-
-**Stack:** React, Vite, Three.js, Lenis
-
-```bash
-cd website
-npm install
-npm run dev
-npm run build
-```
-
----
+Implementation details are intentionally kept out of this public README.
 
 ## How It Works
 
 ```text
 PAPER / FABRIC SERVER        RELAY                 VANILLA CLIENT
 ---------------------        -----                 --------------
-Register token      --wss->  voxelport.in
-Assigned port       <------  play.voxelport.in:25312
+Register token      --wss->  configured relay
+Assigned port       <------  relay-host.example:25312
                                            <--tcp--  Player joins address
 Game traffic        <----->  proxy bridge  <----->  Minecraft client
 ```
 
 1. The plugin or mod opens an outbound WebSocket to the relay.
 2. It registers using a Discord-issued server token.
-3. The relay validates the token and assigns a stable public TCP port.
-4. Players join the public address from vanilla Minecraft.
+3. The relay validates the token and assigns a stable TCP port.
+4. Players join the assigned address from vanilla Minecraft.
 5. Minecraft packets are bridged through the relay without being stored.
 
 The relay is a bridge, not a game server. Your actual Minecraft server still runs on your machine or host.
+
+Check service information and updates on the [VoxelPort status page](https://www.voxelport.in/#/status).
 
 ---
 
@@ -181,27 +147,9 @@ Access to the relay is gated by membership in the [VoxelPort Discord server](htt
 
 This helps prevent anonymous abuse without making players create a separate VoxelPort account.
 
----
-
-## Relay Infrastructure
-
-The relay currently runs on a node in India at `voxelport.in`.
-
-| Region | Expected latency overhead |
-|---|---|
-| South Asia, Southeast Asia | < 80 ms |
-| Middle East, East Asia | 80-150 ms |
-| Europe | 150-250 ms |
-| North America | 250-400 ms |
-| South America, Australia | > 400 ms |
-
-Additional nodes are planned as the network grows. [Check live status](https://www.voxelport.in/#/status).
-
----
-
 ## Contributing
 
-VoxelPort welcomes contributors. See the [Join Us page](https://www.voxelport.in/#/join) for open roles.
+VoxelPort welcomes contributors. See the [Join Us page](https://www.voxelport.in/#/join), join the Discord, or open an issue in the relevant GitHub repository.
 
 1. Fork the relevant repository.
 2. Make your changes.
@@ -213,8 +161,10 @@ Bug reports and feature requests go in the Issues tab of the relevant repository
 
 ## Links
 
-- [Website](https://www.voxelport.in)
 - [Discord](https://discord.gg/Fbqx76j5US)
+- [Website](https://www.voxelport.in)
+- [Status Page](https://www.voxelport.in/#/status)
+- [Join Us](https://www.voxelport.in/#/join)
 - [Paper Plugin on Hangar](https://hangar.papermc.io/voxelportt/VoxelPort)
 - [Paper Plugin on Modrinth](https://modrinth.com/plugin/voxelportplugin)
 - [VoxelPort GitHub](https://github.com/VOXELPORT)
