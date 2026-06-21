@@ -121,7 +121,7 @@ Implementation details are intentionally kept out of this public README.
 ## How It Works
 
 <p align="center">
-  <img src="assets/readme/how-it-works.gif" alt="Animated VoxelPort relay flow" width="900" />
+  <img src="https://traz.arge.in/how-it-works.gif" alt="Animated VoxelPort relay flow" width="900" />
 </p>
 
 1. The plugin or mod opens an outbound WebSocket to the relay.
