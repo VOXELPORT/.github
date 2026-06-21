@@ -120,14 +120,9 @@ Implementation details are intentionally kept out of this public README.
 
 ## How It Works
 
-```text
-PAPER / FABRIC SERVER        RELAY                 VANILLA CLIENT
----------------------        -----                 --------------
-Register token      --wss->  configured relay
-Assigned port       <------  relay-host.example:25312
-                                           <--tcp--  Player joins address
-Game traffic        <----->  proxy bridge  <----->  Minecraft client
-```
+<p align="center">
+  <img src="assets/readme/how-it-works.gif" alt="Animated VoxelPort relay flow" width="900" />
+</p>
 
 1. The plugin or mod opens an outbound WebSocket to the relay.
 2. It registers using a Discord-issued server token.
