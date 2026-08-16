@@ -2,14 +2,14 @@
 
 <img src="https://pr.opop.eu.org/Frame_2.png" width="100" alt="VoxelPort" />
 
-# VoxelPort
+# VoxelPort Fabric Mod
 
-**Minecraft relay tooling for VoxelPort servers.**  
-Plugin and mod support for private VoxelPort relay infrastructure.
+**Host your Fabric server without port forwarding.**
+Install the mod and share a normal join address with vanilla players. No signup, no Discord, no token to copy — it just works.
 
-[![Discord](https://img.shields.io/badge/Discord-Join-5865f2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/Fbqx76j5US)
-[![License: MIT](https://img.shields.io/badge/License-MIT-00FFB2?style=flat-square)](https://github.com/VOXELPORT)
 [![Website](https://img.shields.io/badge/Website-voxelport.in-00FFB2?style=flat-square)](https://www.voxelport.in)
+[![Status](https://img.shields.io/badge/Status-Page-00FFB2?style=flat-square)](https://www.voxelport.in/#/status)
+[![License: MIT](https://img.shields.io/badge/License-MIT-00FFB2?style=flat-square)](https://github.com/VOXELPORT)
 
 </div>
 
@@ -17,44 +17,53 @@ Plugin and mod support for private VoxelPort relay infrastructure.
 
 ## Overview
 
-VoxelPort is a Minecraft networking project made of a Paper plugin, a Fabric mod, a relay service, and a Discord bot. Server owners connect their Minecraft server to a configured relay, and players join through the address assigned by that relay.
+VoxelPort connects a Fabric server or an Open to LAN singleplayer world to VoxelPort-operated relay infrastructure. Your game opens an outbound encrypted WebSocket connection, the relay assigns a public TCP port, and players join that address from vanilla Minecraft.
 
-```text
-Install plugin or mod       ->  paste your Discord-issued token
-Run /voxelport status       ->  relay-host.example:25312
-Friends paste the address   ->  connected with vanilla Minecraft
-```
+Players do not need to install the mod.
 
-Players do not need to install anything.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/VOXELPORT/VoxelPort/main/docs/how-it-works.svg" alt="How VoxelPort connects a host to players through the relay" width="900" />
+</p>
 
 ---
 
-## Repositories
+## Requirements
 
-| Repo | What it is |
+| Requirement | Version |
 |---|---|
-| [Fabric Mod](#fabric-mod) | Fabric server mod for Minecraft 26.x / Java 25 servers |
+| Minecraft | 26.x |
+| Fabric Loader | 0.18.6+ |
+| Java | 25+ |
+
+A device token is generated automatically on first launch — nothing to request or paste.
 
 ---
 
-## Fabric Mod
+## Quick Start
 
-A **Fabric server mod** that brings the same relay flow to Fabric servers. It uses the same token and assigned-port relay protocol as the Paper plugin.
+### Singleplayer world
 
-**Stack:** Java 25, Fabric Loader 0.18.6+, Minecraft 26.x
+1. Install the VoxelPort mod in your Fabric client.
+2. Open Minecraft and load your singleplayer world.
+3. Use Minecraft's **Open to LAN** button.
+4. Press **Open to VoxelPort** from the pause menu.
+5. Share the copied `play.voxelport.in:<assigned-port>` address.
 
-**Key features:**
+Players joining your address do not need the mod.
 
-- Dedicated server support through `/voxelport` commands
-- Same assigned-address flow: `<relay-host>:<assigned-port>`
-- Token saved locally in `config/voxelport/settings.properties`
-- WebSocket frame buffering and serialized sends to avoid packet-stream corruption
-- Client-side legacy singleplayer room-code UI is still present, but server mode is the recommended path
+### Dedicated server
 
-**Server commands:**
+1. Install Fabric Loader on your Minecraft server.
+2. Put the VoxelPort mod JAR in your server's `mods/` folder.
+3. Restart the server.
+4. Run `/voxelport start`.
+5. Share the address shown by `/voxelport address`.
+
+---
+
+## Commands
 
 ```mcfunction
-/voxelport token <token-from-discord-gettoken>
 /voxelport start
 /voxelport start <port>
 /voxelport status
@@ -62,91 +71,70 @@ A **Fabric server mod** that brings the same relay flow to Fabric servers. It us
 /voxelport stop
 ```
 
-**Quick start:**
+`/voxelport start` uses the server's configured Minecraft port automatically. Use `/voxelport start <port>` only when you need to expose a different local port.
 
-```bash
-cd VoxelPortMod
-./gradlew build
-```
-
-Output:
-
-```text
-VoxelPortMod/build/libs/voxelport-mod-1.2.0.jar
-```
-
-Install the JAR in the Fabric server `mods/` folder, restart the server, save your token with `/voxelport token <token>`, then run `/voxelport start`.
+The device token is managed for you; `/voxelport token <token>` still exists as an advanced override.
 
 ---
 
-## Infrastructure
+## Configuration
 
-The relay service and Discord bot are VoxelPort-operated infrastructure. They validate tokens, assign relay ports, and bridge Minecraft traffic for registered plugin/mod servers.
+The mod saves server settings at:
 
-Implementation details are intentionally kept out of this public README.
+```text
+config/voxelport/settings.properties
+```
+
+Example config:
+
+```properties
+server_token=vp_...        # auto-generated; do not share
+public_host=play.voxelport.in
+server_host=127.0.0.1
+max_connections=200
+relay_url=wss://relay.voxelport.in
+```
+
+Leave `relay_url` blank (or `wss://relay.voxelport.in`) unless you are testing with VoxelPort support.
+
+---
 
 ## How It Works
 
-```text
-PAPER / FABRIC SERVER        RELAY                 VANILLA CLIENT
----------------------        -----                 --------------
-Register token      --wss->  configured relay
-Assigned port       <------  relay-host.example:25312
-                                           <--tcp--  Player joins address
-Game traffic        <----->  proxy bridge  <----->  Minecraft client
-```
+1. The mod opens an outbound WebSocket to the relay.
+2. It registers using its auto-generated device token.
+3. The relay assigns a public TCP port.
+4. Players join `play.voxelport.in:<assigned-port>` from vanilla Minecraft.
+5. Minecraft traffic is bridged through the relay to your Fabric server.
 
-1. The plugin or mod opens an outbound WebSocket to the relay.
-2. It registers using a Discord-issued server token.
-3. The relay validates the token and assigns a stable TCP port.
-4. Players join the assigned address from vanilla Minecraft.
-5. Minecraft packets are bridged through the relay without being stored.
-
-The relay is a bridge, not a game server. Your actual Minecraft server still runs on your machine or host.
-
-Check service information and updates on the [VoxelPort status page](https://www.voxelport.in/#/status).
+The relay is a bridge, not a game server. Your world, mods, and player data stay on your own server.
 
 ---
 
-## Discord Verification
+## Troubleshooting
 
-Access to the relay is gated by membership in the [VoxelPort Discord server](https://discord.gg/Fbqx76j5US). Run `/gettoken` in Discord to receive a server token.
+**Status shows disconnected**
+Make sure your host allows outbound HTTPS/WSS traffic to `relay.voxelport.in` on port `443`.
 
-This helps prevent anonymous abuse without making players create a separate VoxelPort account.
+**Players cannot join**
+Run `/voxelport status` or `/voxelport address`, then make sure players are joining the public address shown there.
 
-## Contributing
-
-VoxelPort welcomes contributors. See the [Join Us page](https://www.voxelport.in/#/join), join the Discord, or open an issue in the relevant GitHub repository.
-
-1. Fork the relevant repository.
-2. Make your changes.
-3. Open a pull request against `main`.
-
-Bug reports and feature requests go in the Issues tab of the relevant repository.
+**Disconnects with compression or packet errors**
+Update to the latest mod release. Server mode buffers fragmented WebSocket frames and serializes relay writes to prevent packet-stream corruption.
 
 ---
 
 ## Links
 
-- [Discord](https://discord.gg/Fbqx76j5US)
 - [Website](https://www.voxelport.in)
+- [Desktop app](https://www.voxelport.in) — a separate download that tunnels any local Minecraft server without a mod
 - [Status Page](https://www.voxelport.in/#/status)
-- [Join Us](https://www.voxelport.in/#/join)
 - [VoxelPort GitHub](https://github.com/VOXELPORT)
 
 ---
 
 ## License
 
-MIT. See individual repository license files.
+MIT. See the included license file.
 
-VoxelPort is not affiliated with Mojang, Microsoft, Fabric, PaperMC, or Discord.  
-Minecraft is a trademark of Mojang AB.
-
----
-
-<div align="center">
-
-Built by [trazhub](https://github.com/trazhub)
-
-</div>
+VoxelPort is not affiliated with Mojang, Microsoft, Fabric, CurseForge, or Modrinth.
