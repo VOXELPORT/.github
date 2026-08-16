@@ -33,40 +33,7 @@ Players do not need to install anything.
 
 | Repo | What it is |
 |---|---|
-| [Paper Plugin](#paper-plugin) | Paper server plugin for Paper 1.21+ servers |
 | [Fabric Mod](#fabric-mod) | Fabric server mod for Minecraft 26.x / Java 25 servers |
-
----
-
-## Paper Plugin
-
-A **Paper server plugin** that connects your self-hosted Minecraft server to the configured relay, giving it a join address like `relay-host.example:25312`. Players connect with unmodified Minecraft.
-
-**Stack:** Java 21, Paper 1.21+
-
-**Key features:**
-
-- Join address without port forwarding
-- Vanilla clients connect directly
-- Free token issued through Discord with `/gettoken`
-- Encrypted `wss://` connection to the relay
-- `/voxelport status` shows join address and relay health
-- Drop-in JAR, no separate tunnel app
-
-**Quick start:**
-
-```bash
-cd plugin
-./gradlew build
-```
-
-Output:
-
-```text
-plugin/build/libs/voxelport-plugin-1.0.0.jar
-```
-
-Install the JAR in `plugins/`, add your token to `plugins/VoxelPort/config.yml`, then start the server.
 
 ---
 
@@ -165,8 +132,6 @@ Bug reports and feature requests go in the Issues tab of the relevant repository
 - [Website](https://www.voxelport.in)
 - [Status Page](https://www.voxelport.in/#/status)
 - [Join Us](https://www.voxelport.in/#/join)
-- [Paper Plugin on Hangar](https://hangar.papermc.io/voxelportt/VoxelPort)
-- [Paper Plugin on Modrinth](https://modrinth.com/plugin/voxelportplugin)
 - [VoxelPort GitHub](https://github.com/VOXELPORT)
 
 ---
