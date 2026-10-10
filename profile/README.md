@@ -51,7 +51,8 @@ An Electron app for Windows and Linux (macOS soon).
 - **Live console**, player count and relay ping, a RAM slider sized to your PC, and server files on any drive.
 - **Direct routing:** connects straight to the relay for low ping, falling back to Cloudflare if a network blocks it.
 
-[Download for Windows](https://github.com/VOXELPORT/VoxelPort-App/releases/latest/download/VoxelPort-Setup.exe) ·
+**[Get it from the Microsoft Store](https://apps.microsoft.com/detail/9NGRX9CFNBD6)** ·
+[Windows .exe](https://github.com/VOXELPORT/VoxelPort-App/releases/latest/download/VoxelPort-Setup.exe) ·
 [Portable .exe](https://github.com/VOXELPORT/VoxelPort-App/releases/latest/download/VoxelPort-Portable.exe) ·
 [Linux](https://github.com/VOXELPORT/VoxelPort-App/releases/latest/download/VoxelPort-Linux.tar.gz)
 
