@@ -10,7 +10,7 @@ One free, open-source app for Windows, Linux and Android, backed by a relay in I
 [![License: MIT](https://img.shields.io/badge/License-MIT-5FAE3B?style=flat-square)](https://github.com/VOXELPORT)
 [![Website](https://img.shields.io/badge/Website-voxelport.in-5FAE3B?style=flat-square)](https://voxelport.in)
 [![Status](https://img.shields.io/badge/Status-Page-5FAE3B?style=flat-square)](https://voxelport.in/status)
-[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square)](https://discord.gg/2wJbCPwP4r)
+[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square)](https://discord.gg/JAUfmey2fP)
 [![Download](https://img.shields.io/github/v/release/VOXELPORT/VoxelPort-App?label=Download&color=C8262B&style=flat-square)](https://github.com/VOXELPORT/VoxelPort-App/releases/latest)
 
 </div>
@@ -67,7 +67,7 @@ An Electron app for Windows and Linux (macOS soon). There is also an **Android a
 
 The relay is a bridge, not a game server. Your world, mods and player data stay on your own machine.
 
-Check live status on the [VoxelPort status page](https://voxelport.in/status). Need help? Open a ticket in our [Discord](https://discord.gg/2wJbCPwP4r).
+Check live status on the [VoxelPort status page](https://voxelport.in/status). Need help? Open a ticket in our [Discord](https://discord.gg/JAUfmey2fP).
 
 ---
 
