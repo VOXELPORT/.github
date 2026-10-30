@@ -39,7 +39,7 @@ Friends paste the address              ->  connected with vanilla Minecraft
 | [relay](https://github.com/VOXELPORT/relay) | The Go relay server that bridges players to hosts |
 | [website](https://github.com/VOXELPORT/website) | voxelport.in |
 
-> The Fabric mod ([VoxelPort](https://github.com/VOXELPORT/VoxelPort)) opens the world or Fabric server you are already in to friends, with no account. For everything else (any server, modpacks, plugins, backups), use the app.
+> The Fabric mod ([VoxelPort](https://github.com/VOXELPORT/VoxelPort)) is discontinued. Use the app instead: it works with any server, including Fabric and modpacks.
 
 ---
 
