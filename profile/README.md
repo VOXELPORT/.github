@@ -40,7 +40,7 @@ Friends paste the address              ->  connected with vanilla Minecraft
 | [VoxelPort-App](https://github.com/VOXELPORT/VoxelPort-App) | Desktop app (Windows) — creates, imports or tunnels any Minecraft Java server. Plugin and mod installer included |
 | [voxelport-mobile](https://github.com/VOXELPORT/voxelport-mobile) | Android app, hosts a Paper server on your phone |
 | [relay](https://github.com/VOXELPORT/relay) | The Go relay server that bridges players to hosts |
-| [website](https://github.com/VOXELPORT/website) | voxelport.in |
+| [website](https://github.com/VOXELPORT/website) | voxelport.github.io |
 
 > The Fabric mod ([VoxelPort](https://github.com/VOXELPORT/VoxelPort)) is discontinued. Use the app instead: it works with any server, including Fabric and modpacks.
 
@@ -48,7 +48,7 @@ Friends paste the address              ->  connected with vanilla Minecraft
 
 ## Desktop App
 
-The desktop app is moving: the new VoxelPort (2.0 beta, Windows) is a small native app, and the previous Electron app has a one-click button that moves you to it. There is also an **Android app** that hosts a server from your phone ([install guide](https://voxelport.in/guides/host-minecraft-server-android-phone), [source](https://github.com/VOXELPORT/voxelport-mobile)), with the same Discord sign-in and address backup.
+The desktop app is moving: the new VoxelPort (2.0 beta, Windows) is a small native app, and the previous Electron app has a one-click button that moves you to it. There is also an **Android app** that hosts a server from your phone ([install guide](https://voxelport.github.io/guides/host-minecraft-server-android-phone), [source](https://github.com/VOXELPORT/voxelport-mobile)), with the same Discord sign-in and address backup.
 
 - **New server:** pick Vanilla, Paper or Fabric and a version — VoxelPort downloads it and starts it.
 - **Your server:** import an existing server folder, or tunnel one that's already running on any port.
