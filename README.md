@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://voxelport.in/logo.png" width="100" alt="VoxelPort" />
+<img src="https://voxelport.github.io/logo.png" width="100" alt="VoxelPort" />
 
 # VoxelPort
 
@@ -8,8 +8,8 @@
 One free, open-source app for Windows and Android, backed by relays in India and Europe. Friends need no account, and hosts sign in with Discord once. Works behind Jio and Airtel (CGNAT), and Java and Bedrock players can join the same server.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-5FAE3B?style=flat-square)](https://github.com/VOXELPORT)
-[![Website](https://img.shields.io/badge/Website-voxelport.in-5FAE3B?style=flat-square)](https://voxelport.in)
-[![Status](https://img.shields.io/badge/Status-Page-5FAE3B?style=flat-square)](https://voxelport.in/status)
+[![Website](https://img.shields.io/badge/Website-voxelport.github.io-5FAE3B?style=flat-square)](https://voxelport.github.io)
+[![Status](https://img.shields.io/badge/Status-Page-5FAE3B?style=flat-square)](https://voxelport.github.io/status)
 [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square)](https://discord.gg/JAUfmey2fP)
 [![Download](https://img.shields.io/github/v/release/VOXELPORT/VoxelPort-App?label=Download&color=C8262B&style=flat-square)](https://github.com/VOXELPORT/VoxelPort-App/releases/latest)
 
@@ -73,7 +73,7 @@ The desktop app is moving: the new VoxelPort (2.0 beta, Windows) is a small nati
 
 The relay is a bridge, not a game server. Your world, mods and player data stay on your own machine.
 
-Check live status on the [VoxelPort status page](https://voxelport.in/status). Need help? Open a ticket in our [Discord](https://discord.gg/JAUfmey2fP).
+Check live status on the [VoxelPort status page](https://voxelport.github.io/status). Need help? Open a ticket in our [Discord](https://discord.gg/JAUfmey2fP).
 
 ---
 
