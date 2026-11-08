@@ -5,7 +5,7 @@
 # VoxelPort
 
 **Host a Minecraft server from your PC or Android phone — no port forwarding.**  
-One free, open-source app for Windows, Linux and Android, backed by relays in India and Europe. Friends need no account, and hosts sign in with Discord once. Works behind Jio and Airtel (CGNAT), and Java and Bedrock players can join the same server.
+One free, open-source app for Windows and Android, backed by relays in India and Europe. Friends need no account, and hosts sign in with Discord once. Works behind Jio and Airtel (CGNAT), and Java and Bedrock players can join the same server.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-5FAE3B?style=flat-square)](https://github.com/VOXELPORT)
 [![Website](https://img.shields.io/badge/Website-voxelport.in-5FAE3B?style=flat-square)](https://voxelport.in)
@@ -37,7 +37,7 @@ Friends paste the address              ->  connected with vanilla Minecraft
 
 | Repo | What it is |
 |---|---|
-| [VoxelPort-App](https://github.com/VOXELPORT/VoxelPort-App) | Desktop app (Windows/Linux) — creates, imports or tunnels any Minecraft Java server. Plugin and mod installer included |
+| [VoxelPort-App](https://github.com/VOXELPORT/VoxelPort-App) | Desktop app (Windows) — creates, imports or tunnels any Minecraft Java server. Plugin and mod installer included |
 | [voxelport-mobile](https://github.com/VOXELPORT/voxelport-mobile) | Android app, hosts a Paper server on your phone |
 | [relay](https://github.com/VOXELPORT/relay) | The Go relay server that bridges players to hosts |
 | [website](https://github.com/VOXELPORT/website) | voxelport.in |
@@ -48,7 +48,7 @@ Friends paste the address              ->  connected with vanilla Minecraft
 
 ## Desktop App
 
-The desktop app is moving: the new VoxelPort (2.0 beta, Windows) is a small native app, and the previous Electron app (Windows and Linux, macOS soon) has a one-click button that moves you to it. There is also an **Android app** that hosts a server from your phone ([install guide](https://voxelport.in/guides/host-minecraft-server-android-phone), [source](https://github.com/VOXELPORT/voxelport-mobile)), with the same Discord sign-in and address backup.
+The desktop app is moving: the new VoxelPort (2.0 beta, Windows) is a small native app, and the previous Electron app has a one-click button that moves you to it. There is also an **Android app** that hosts a server from your phone ([install guide](https://voxelport.in/guides/host-minecraft-server-android-phone), [source](https://github.com/VOXELPORT/voxelport-mobile)), with the same Discord sign-in and address backup.
 
 - **New server:** pick Vanilla, Paper or Fabric and a version — VoxelPort downloads it and starts it.
 - **Your server:** import an existing server folder, or tunnel one that's already running on any port.
@@ -59,8 +59,7 @@ The desktop app is moving: the new VoxelPort (2.0 beta, Windows) is a small nati
 - **Address backup:** lock your address with a passphrase and save it to your Discord account, then restore it on a new PC or phone. VoxelPort cannot read the backup or recover a forgotten passphrase.
 
 **[Get the new app (Windows, beta)](https://github.com/VOXELPORT/VoxelPort-App/releases/download/v2.0.0-beta.1/VoxelPort-Setup.exe)** ·
-[Previous app: Microsoft Store](https://apps.microsoft.com/detail/9NGRX9CFNBD6) ·
-[Linux](https://github.com/VOXELPORT/VoxelPort-App/releases/latest/download/VoxelPort-Linux.tar.gz)
+[Previous app: Microsoft Store](https://apps.microsoft.com/detail/9NGRX9CFNBD6)
 
 ---
 
