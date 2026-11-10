@@ -16,7 +16,7 @@ One free, open-source app for Windows and Android, backed by relays in India and
 </div>
 
 > [!IMPORTANT]
-> **VoxelPort has moved to a new app (2.0 beta).** Rebuilt on newer technology: about 3 MB instead of over 100 MB, and where every new feature goes. **Move in one click:** update the current app to 1.18.0 and press **Update to the new VoxelPort**: it downloads and checks the new app, installs it, brings your servers, backups, VoxelPort ID, address and settings across, then removes the old app (your server folders and worlds are never touched). Or [install it directly](https://github.com/VOXELPORT/VoxelPort-App/releases/download/v2.0.0-beta.1/VoxelPort-Setup.exe) (Windows). **Windows 11 Smart App Control:** the new app is not code-signed yet, so Smart App Control blocks its installer (no "Run anyway"). To install it, switch Smart App Control off (Settings › Privacy & security › Windows Security › App & browser control › Smart App Control settings › Off), but Windows cannot turn it back on later without reinstalling Windows; otherwise keep using the current app, which keeps working.
+> **VoxelPort has moved to a new app (2.0 beta).** Rebuilt on newer technology: about 3 MB instead of over 100 MB, and where every new feature goes. **Move in one click:** update the current app to 1.18.0 and press **Update to the new VoxelPort**: it downloads and checks the new app, installs it, brings your servers, backups, VoxelPort ID, address and settings across, then removes the old app (your server folders and worlds are never touched). Or [install it directly](https://github.com/VOXELPORT/VoxelPort-App/releases/download/v2.0.0-beta.2/VoxelPort-Setup.exe) (Windows). **Windows 11 Smart App Control:** the new app is not code-signed yet, so Smart App Control blocks its installer (no "Run anyway"). To install it, switch Smart App Control off (Settings › Privacy & security › Windows Security › App & browser control › Smart App Control settings › Off), but Windows cannot turn it back on later without reinstalling Windows; otherwise keep using the current app, which keeps working.
 
 ---
 
@@ -58,7 +58,7 @@ The desktop app is moving: the new VoxelPort (2.0 beta, Windows) is a small nati
 - **Discord sign-in:** hosts sign in with Discord once and join our server. VoxelPort never sees your Discord password or email, and friends who only play never sign in.
 - **Address backup:** lock your address with a passphrase and save it to your Discord account, then restore it on a new PC or phone. VoxelPort cannot read the backup or recover a forgotten passphrase.
 
-**[Get the new app (Windows, beta)](https://github.com/VOXELPORT/VoxelPort-App/releases/download/v2.0.0-beta.1/VoxelPort-Setup.exe)** ·
+**[Get the new app (Windows, beta)](https://github.com/VOXELPORT/VoxelPort-App/releases/download/v2.0.0-beta.2/VoxelPort-Setup.exe)** ·
 [Previous app: Microsoft Store](https://apps.microsoft.com/detail/9NGRX9CFNBD6)
 
 ---
