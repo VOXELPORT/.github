@@ -17,6 +17,8 @@ One free, open-source app for Windows and Android, backed by relays in India and
 
 > [!IMPORTANT]
 > **VoxelPort has moved to a new app (2.0).** Rebuilt on newer technology: about 3 MB instead of over 100 MB, and where every new feature goes. **Move in one click:** update the current app to 1.18.0 and press **Update to the new VoxelPort**: it downloads and checks the new app, installs it, brings your servers, backups, VoxelPort ID, address and settings across, then removes the old app (your server folders and worlds are never touched). Or [install it directly](https://github.com/VOXELPORT/VoxelPort-App/releases/latest/download/VoxelPort-Setup.exe) (Windows). **Windows 11 Smart App Control:** the new app is not code-signed yet, so Smart App Control blocks its installer (no "Run anyway"). To install it, switch Smart App Control off (Settings › Privacy & security › Windows Security › App & browser control › Smart App Control settings › Off), but Windows cannot turn it back on later without reinstalling Windows; otherwise keep using the current app, which keeps working.
+>
+> The previous Electron app is no longer updated: it keeps the India and Europe relays. The Los Angeles relay, custom addresses on every relay and Supporter+ voice chat on every relay are in the new app.
 
 ---
 
